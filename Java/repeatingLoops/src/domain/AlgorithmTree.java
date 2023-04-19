@@ -10,7 +10,7 @@ public class AlgorithmTree {
 		
 	Scanner read = new Scanner(System.in);
 	
-	int num, sumPositive = 0 ;
+	int num, sumPositive  = 0 ;
 
 	 do{
 		 System.out.println("Informe um número:");
