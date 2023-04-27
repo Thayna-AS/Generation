@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.Scanner;
+import domain.util.Colors;
 
 public class Menu {
 
@@ -12,6 +13,7 @@ public class Menu {
 		
 		while(true){
 			
+			System.out.println(Colors.TEXT_PURPLE + Colors.ANSI_BLACK_BACKGROUND);
 			System.out.println("***********************************");
 			System.out.println("                                   ");
 			System.out.println("           Conta Bancária          ");
@@ -26,7 +28,7 @@ public class Menu {
 			System.out.println(" 7- Depositar.                     ");
 			System.out.println(" 8- Transferir valores entre contas");
 			System.out.println(" 9- Sair                           ");
-			System.out.println("***********************************");
+			System.out.println("***********************************" + Colors.TEXT_RESET);
 			
 			op = read.nextInt();
 			
@@ -39,53 +41,53 @@ public class Menu {
 			switch (op) {
 					
 					case 1:
-						System.out.println("Criar conta\n\n");
+						System.out.println(Colors.TEXT_WHITE_BOLD_BRIGHT +"Criar conta\n\n");
 						
 						break;
 					
 					case 2: 
 						
-						System.out.println("Listar todas as contas\n\n");
+						System.out.println(Colors.TEXT_WHITE_BOLD_BRIGHT +"Listar todas as contas\n\n");
 						
 						break;
 						
 					case 3: 
 						
-						System.out.println("Consultar dados da conta - por número\n\n");
+						System.out.println(Colors.TEXT_WHITE_BOLD_BRIGHT +"Consultar dados da conta - por número\n\n");
 						
 						break;
 						
 					case 4: 
 						
-						System.out.println("Atualizar dados da conta\n\n");
+						System.out.println(Colors.TEXT_WHITE_BOLD_BRIGHT +"Atualizar dados da conta\n\n");
 						
 						break;
 						
 					case 5:
 						
-						System.out.println("Apagar a conta\n\n");
+						System.out.println(Colors.TEXT_WHITE_BOLD_BRIGHT +"Apagar a conta\n\n");
 						
 					case 6:
 					
-						System.out.println("Saque\n\n");
+						System.out.println(Colors.TEXT_WHITE_BOLD_BRIGHT +"Saque\n\n");
 					
 						break;
 						
 					case 7:
 						
-						System.out.println("Depósito\n\n");
+						System.out.println(Colors.TEXT_WHITE_BOLD_BRIGHT +"Depósito\n\n");
 
 						break;
 						
 					case 8:
 						
-						System.out.println("Transferência entre Contas\n\n");
+						System.out.println(Colors.TEXT_WHITE_BOLD_BRIGHT +"Transferência entre Contas\n\n");
 
 						break;
 						
 					default:
 						
-						System.out.println("\nOpção Inválida!\n");
+						System.out.println(Colors.TEXT_RED_BOLD +"\nOpção Inválida!\n");
 						
 						break;
 			}
