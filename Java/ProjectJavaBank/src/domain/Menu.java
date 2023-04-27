@@ -1,11 +1,35 @@
 package domain;
 
+import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import domain.util.Colors;
+import domain.model.Account;
+import domain.model.CheckingAccount;
+import domain.model.SavingsAccount;
+
 
 public class Menu {
 
 	public static void main(String[] args) {
+		
+		
+		//teste da classe CheckingAccount.
+		CheckingAccount ca1 = new CheckingAccount(2, 123, 1, "Mariana", 1000.0f);
+		ca1.view();
+		ca1.withdraw(12000.0f);
+		ca1.view();
+		ca1.deposit(5000.0f);
+		ca1.view();
+		
+		//teste da classe SavingsAccount;
+		SavingsAccount sa1 = new SavingsAccount(3, 123, 2, "Victor", 10000.0f);
+		sa1.view();
+		sa1.withdraw(1000.1f);
+		sa1.view();
+		sa1.deposit(5000.0f);
+		sa1.view();
+		
 		
 		Scanner read = new Scanner(System.in);
 		
@@ -13,8 +37,9 @@ public class Menu {
 		
 		while(true){
 			
-			System.out.println(Colors.TEXT_PURPLE + Colors.ANSI_BLACK_BACKGROUND);
-			System.out.println("***********************************");
+			
+			System.out.println(Colors.TEXT_YELLOW + Colors.ANSI_BLACK_BACKGROUND +
+							   "***********************************");
 			System.out.println("                                   ");
 			System.out.println("           Conta Bancária          ");
 			System.out.println("***********************************");
@@ -29,8 +54,15 @@ public class Menu {
 			System.out.println(" 8- Transferir valores entre contas");
 			System.out.println(" 9- Sair                           ");
 			System.out.println("***********************************" + Colors.TEXT_RESET);
-			
 			op = read.nextInt();
+			
+			try {
+				op = read.nextInt();
+			}catch (InputMismatchException e) {
+				System.out.println("\nDigite valores inteiros!");
+				read.nextLine();
+				op = 0;
+			}
 			
 			if (op == 9) {
 				System.out.println("\n O seu futuro começa aqui!");
@@ -92,6 +124,16 @@ public class Menu {
 						break;
 			}
 		}
+		
+	}
+		public static void keyPress() {
+			try {
+				System.out.println(Colors.TEXT_RESET + "\n\nPressione Enter para continuar..");
+				System.in.read();
+			}catch (IOException e) {
+				System.out.println("Você pressionou uma tecla diferente de Enter!");
+			}
+		
 	}
 
 }
