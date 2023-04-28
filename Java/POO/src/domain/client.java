@@ -10,13 +10,13 @@ public class client {
 	
 	Scanner read = new Scanner(System.in);
 	
-	String name, profession, cpf;
+	String name, profession;
 	double wage; 
 	
-	public void see () {
+	public void see() {
 		
 		System.out.println("Dados do cliente:");
-		System.out.println("Nome : " + getName()+ "\nProfissão: " + getProfession() + "\nCPF: " + getCpf() + "\nSalário: " + getWage());
+		System.out.println("Nome : " + getName()+ "\nProfissão: " + getProfession() + "\nSalário: " + getWage());
 	}
 
 
@@ -44,13 +44,6 @@ public class client {
 		this.profession = profession;
 	}
 
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
 
 	public double getWage() {
 		return wage;
@@ -60,11 +53,10 @@ public class client {
 		this.wage = wage;
 	}
 
-	public client(String name, String profession, String cpf, double wage) {
+	public client(String name, String profession, double wage) {
 		super();
 		this.name = name;
 		this.profession = profession;
-		this.cpf = cpf;
 		this.wage = wage;
 	}
 
