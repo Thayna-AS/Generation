@@ -10,7 +10,10 @@ public class PhysicalPerson extends client{
 	String cpf;
 	
 	public void see() {
-			System.out.println(getCpf());
+		
+			System.out.println("Dados cliente Pf:");
+			System.out.println("\nCPF: " + getCpf());
+			
 		
 	}
 
