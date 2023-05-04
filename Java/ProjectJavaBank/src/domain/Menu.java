@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import domain.util.Colors;
+import domain.controller.AccountController;
 import domain.model.Account;
 import domain.model.CheckingAccount;
 import domain.model.SavingsAccount;
@@ -13,11 +14,15 @@ public class Menu {
 
 	public static void main(String[] args) {
 		
+		AccountController accounts = new AccountController();
+		
+		int option,number, agency,type, bay;
+		String holder;
+		float balance, limit;
 		
 		//teste da classe CheckingAccount.
 		CheckingAccount ca1 = new CheckingAccount(2, 123, 1, "Mariana", 1000.0f);
 		ca1.view();
-		ca1.withdraw(12000.0f);
 		ca1.view();
 		ca1.deposit(5000.0f);
 		ca1.view();
@@ -27,9 +32,9 @@ public class Menu {
 		sa1.view();
 		sa1.withdraw(1000.1f);
 		sa1.view();
-		sa1.deposit(5000.0f);
 		sa1.view();
 		
+		//--------------------------------------------------------------------
 		
 		Scanner read = new Scanner(System.in);
 		
@@ -75,18 +80,39 @@ public class Menu {
 					case 1:
 						System.out.println(Colors.TEXT_WHITE_BOLD_BRIGHT +"Criar conta\n\n");
 						
-						break;
-					
-					case 2: 
+						System.out.println(Colors.TEXT_WHITE_BOLD_BRIGHT +"Criar conta\n\n");
+						System.out.println("Digite o número da Agência: ");
+						agency = read.nextInt();
+						System.out.println("Digite o nome do titular: ");
+						read.skip("\\R?");
+						holder = read.nextLine();
 						
-						System.out.println(Colors.TEXT_WHITE_BOLD_BRIGHT +"Listar todas as contas\n\n");
-						
+						do {
+							System.out.println("Digite o tipo da conta (1-CC OU 2- CP): ");
+							type = read.nextInt();
+						}while(type < 1 && type > 2);
+							
+						System.out.println("Digite o saldo da Conta(R$): ");
+						balance = read.nextFloat();
+
+					switch (type) {
+					 case 1 :
+						 System.out.println("Digite o limite de Crédito (R$): ");
+						 limit = read.nextFloat();
+						 accounts.register(new CheckingAccount(accounts.createNumber(), agency, type, holder, balance));
+					case 2 : 
+						System.out.println("Digite o dia do Aniversário da Conta: ");
+						limit = read.nextFloat();
+						accounts.register(new SavingsAccount(accounts.createNumber(), agency, type, holder, balance));
+					}	
+						keyPress();
 						break;
 						
 					case 3: 
 						
 						System.out.println(Colors.TEXT_WHITE_BOLD_BRIGHT +"Consultar dados da conta - por número\n\n");
-						
+						accounts.listAll();
+						keyPress();
 						break;
 						
 					case 4: 

@@ -6,9 +6,10 @@ public class CheckingAccount extends Account {
 	
 	public CheckingAccount(int number, int agency, int type, String holder, float balance) {
 		super(number, agency, type, holder, balance);
-		this.limit = limit;
+		;
 		
 	}
+	
 	public boolean withdraw(float value) {
 		
 		if(this.getBalance() + this.getLimit() < value) {
