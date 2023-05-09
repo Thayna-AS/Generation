@@ -3,7 +3,7 @@ package domain.model;
 public class SavingsAccount extends Account {
 
 	private int bday;
-	public SavingsAccount(int number, int agency, int type, String holder, float balance) {
+	public SavingsAccount(int number, int agency, int type, String holder, float balance, float limit) {
 		super(number, agency, type, holder, balance);
 		
 	}

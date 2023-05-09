@@ -4,12 +4,12 @@ public class CheckingAccount extends Account {
 
 	private float limit;
 	
-	public CheckingAccount(int number, int agency, int type, String holder, float balance) {
+	public CheckingAccount(int number, int agency, int type, String holder, float balance, float limit2) {
 		super(number, agency, type, holder, balance);
 		;
 		
 	}
-	
+
 	public boolean withdraw(float value) {
 		
 		if(this.getBalance() + this.getLimit() < value) {
